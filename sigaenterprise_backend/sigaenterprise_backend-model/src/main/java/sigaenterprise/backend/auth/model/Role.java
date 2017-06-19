@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package auth_model;
+package sigaenterprise.backend.auth.model;
 
 import java.util.List;
 import javax.persistence.Column;

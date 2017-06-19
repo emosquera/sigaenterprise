@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package auth_facade;
+package sigaenterprise.backend.auth.facade;
 
-import auth_model.Role;
+import sigaenterprise.backend.auth.model.Role;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -11,5 +11,6 @@
     <module>sigaenterprise_backend-restful</module>
     <module>sigaenterprise_backend-auth</module>
     <module>sigaenterprise_backend_auth_client</module>
+    <module>sigaenterprise_backend-model</module>
   </modules>
 </project>

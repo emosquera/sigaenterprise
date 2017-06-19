@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package auth_model;
+package sigaenterprise.backend.auth.model;
 
-import auth_enums.UserStatus;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import sigaenterprise.backend.enums.UserStatus;
 
 /**
  *

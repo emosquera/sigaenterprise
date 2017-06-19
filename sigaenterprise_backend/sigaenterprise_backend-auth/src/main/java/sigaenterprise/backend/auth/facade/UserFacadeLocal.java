@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package auth_facade;
+package sigaenterprise.backend.auth.facade;
 
-import auth_model.User;
 import java.util.List;
 import javax.ejb.Local;
+import sigaenterprise.backend.auth.model.User;
 
 /**
  *

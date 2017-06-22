@@ -93,7 +93,7 @@ public class User extends BasicAttributes {
 
     @Override
     public String toString() {
-        return "auth_model.User[ id=" + this.getId() + " ]";
+        return "sigaenterprise.backend.auth.model.User[ id=" + this.getId() + " ]";
     }
     
 }

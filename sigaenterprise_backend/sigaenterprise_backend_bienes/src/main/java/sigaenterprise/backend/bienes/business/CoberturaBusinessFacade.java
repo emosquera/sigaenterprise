@@ -20,11 +20,11 @@ import sigaenterprise.backend.bienes.remote.CoberturaFacadeRemote;
 public class CoberturaBusinessFacade implements CoberturaFacadeRemote{
 
     @EJB
-    CoberturaFacadeLocal userFacadeLocal;
+    CoberturaFacadeLocal coberturaFacadeLocal;
     
     @Override
     public Cobertura findCobertura(Long id){
-    return userFacadeLocal.find(id);
+    return coberturaFacadeLocal.find(id);
     }
     
 

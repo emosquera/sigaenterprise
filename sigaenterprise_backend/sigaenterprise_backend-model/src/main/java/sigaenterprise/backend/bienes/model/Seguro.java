@@ -6,12 +6,17 @@
 package sigaenterprise.backend.bienes.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -21,18 +26,27 @@ import javax.persistence.Id;
 public class Seguro implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String poliza;
-    private Date fecini;
-    private Date fecfin;
+    private Calendar fecini;
+    private Calendar fecfin;
     private String aseguradora;
     //private 
-    
+
+    @OneToMany
+    private List<SeguroCobertura> coberturas;
+
     @Column(name = "poliza")
     public String getPoliza() {
         return poliza;
+    }
+
+    public List<SeguroCobertura> getCoberturas() {
+        return coberturas;
+    }
+
+    public void setCoberturas(List<SeguroCobertura> coberturas) {
+        this.coberturas = coberturas;
     }
 
     public void setPoliza(String poliza) {
@@ -40,20 +54,22 @@ public class Seguro implements Serializable {
     }
 
     @Column(name = "fecini")
-    public Date getFecini() {
+    @Temporal(TemporalType.DATE)
+    public Calendar getFecini() {
         return fecini;
     }
 
-    public void setFecini(Date fecini) {
+    public void setFecini(Calendar fecini) {
         this.fecini = fecini;
     }
 
     @Column(name = "fecfin")
-    public Date getFecfin() {
+    @Temporal(TemporalType.DATE)
+    public Calendar getFecfin() {
         return fecfin;
     }
 
-    public void setFecfin(Date fecfin) {
+    public void setFecfin(Calendar fecfin) {
         this.fecfin = fecfin;
     }
 
@@ -69,6 +85,8 @@ public class Seguro implements Serializable {
             
          
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }

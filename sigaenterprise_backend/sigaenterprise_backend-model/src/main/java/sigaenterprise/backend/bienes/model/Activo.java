@@ -5,8 +5,10 @@
  */
 package sigaenterprise.backend.bienes.model;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import sigaenterprise.backend.auth.model.BasicAttributes;
 
@@ -19,6 +21,17 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
 public class Activo extends BasicAttributes {
     private String codigo;
     private String descripcion;
+    
+    private List<Mueble> mueble;
+
+    @OneToMany
+    public List<Mueble> getMueble() {
+        return mueble;
+    }
+
+    public void setMueble(List<Mueble> mueble) {
+        this.mueble = mueble;
+    }
     
     @Column(name = "codact")
     public String getCodigo() {

@@ -5,9 +5,11 @@
  */
 package sigaenterprise.backend.bienes.model;
 
+import java.util.List;
 import javax.persistence.Column;
 import sigaenterprise.backend.auth.model.BasicAttributes;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +22,17 @@ public class Cobertura extends BasicAttributes {
     
     private String codigo;
     private String descripcion;
+    @OneToMany
+    private List<SeguroCobertura> seguros;
+
+    public List<SeguroCobertura> getSeguros() {
+        return seguros;
+    }
+
+    public void setSeguros(List<SeguroCobertura> seguros) {
+        this.seguros = seguros;
+    }
+    
     
     @Column(name="codcob")
     public String getCodigo() {

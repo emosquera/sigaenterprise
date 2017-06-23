@@ -5,6 +5,8 @@
     <class>sigaenterprise.backend.bienes.model.Seguro</class>
     <class>sigaenterprise.backend.bienes.model.Activo</class>
     <class>sigaenterprise.backend.bienes.model.Mueble</class>
+    <class>sigaenterprise.backend.bienes.model.SeguroCobertura</class>
+    <class>sigaenterprise.backend.bienes.model.SeguroCoberturaId</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <validation-mode>NONE</validation-mode>
     <properties>

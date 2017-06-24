@@ -6,11 +6,13 @@
 package sigaenterprise.backend.treasury.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import sigaenterprise.backend.auth.model.BasicAttributes;
 import sigaenterprise.backend.enums.PayOrderStatus;
@@ -26,6 +28,7 @@ public class PayOrder extends BasicAttributes{
     private Beneficiary beneficiary;
     private BigDecimal amount;
     private String description;
+    private List<BudgetaryImputation> budgetaryImputations;
     private PayOrderStatus status;
 
     @Column(name = "numberOrder")
@@ -62,6 +65,15 @@ public class PayOrder extends BasicAttributes{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @OneToMany
+    public List<BudgetaryImputation> getBudgetaryImputations() {
+        return budgetaryImputations;
+    }
+
+    public void setBudgetaryImputations(List<BudgetaryImputation> budgetaryImputations) {
+        this.budgetaryImputations = budgetaryImputations;
     }
     
     @Column(name = "status")

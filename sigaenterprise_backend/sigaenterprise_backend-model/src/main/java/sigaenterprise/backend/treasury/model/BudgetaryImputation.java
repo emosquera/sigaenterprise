@@ -27,9 +27,7 @@ public class BudgetaryImputation  extends BasicAttributes{
     
     private PayOrder payOrder;
     private BudgetHeading budgetHeading;
-    private BigDecimal mountCau;
-    private BigDecimal mountDesc;
-    private BigDecimal mountRet;
+    private BigDecimal mount;
     
     
     @ManyToOne
@@ -51,30 +49,12 @@ public class BudgetaryImputation  extends BasicAttributes{
     }
     
     @Column(name = "mountCau")
-    public BigDecimal getMountCau() {
-        return mountCau;
+    public BigDecimal getMount() {
+        return mount;
     }
 
-    public void setMountCau(BigDecimal mountCau) {
-        this.mountCau = mountCau;
-    }
-    
-    @Column(name = "mountDesc")
-    public BigDecimal getMountDesc() {
-        return mountDesc;
-    }
-
-    public void setMountDesc(BigDecimal mountDesc) {
-        this.mountDesc = mountDesc;
-    }
-    
-    @Column(name = "mountRet")
-    public BigDecimal getMountRet() {
-        return mountRet;
-    }
-
-    public void setMountRet(BigDecimal mountRet) {
-        this.mountRet = mountRet;
+    public void setMount(BigDecimal mount) {
+        this.mount = mount;
     }
     
      @Override

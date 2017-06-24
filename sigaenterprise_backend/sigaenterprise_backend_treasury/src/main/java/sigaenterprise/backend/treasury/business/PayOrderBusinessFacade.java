@@ -5,16 +5,52 @@
  */
 package sigaenterprise.backend.treasury.business;
 
+import java.util.List;
 import javax.ejb.EJB;
 import sigaenterprise.backend.treasury.facade.PayOrderFacadeLocal;
 import sigaenterprise.backend.treasury.model.PayOrder;
+import sigaenterprise.backend.treasury.remote.PayOrderFacadeRemote;
 
 /**
  *
  * @author martinmgb
  */
-public class PayOrderBusinessFacade {
+public class PayOrderBusinessFacade implements PayOrderFacadeRemote{
     @EJB
     PayOrderFacadeLocal payOrderFacadeLocal;
-    
+
+    @Override
+    public void create(PayOrder asiento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void edit(PayOrder asiento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void remove(PayOrder asiento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public PayOrder find(Object id) {
+        return payOrderFacadeLocal.find(id);    
+    }
+
+    @Override
+    public List<PayOrder> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<PayOrder> findRange(int[] range) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int count() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

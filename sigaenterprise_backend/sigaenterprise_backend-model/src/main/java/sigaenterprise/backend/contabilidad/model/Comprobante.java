@@ -13,6 +13,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 import sigaenterprise.backend.auth.model.BasicAttributes;
 import sigaenterprise.backend.enums.EstatusComprobante;
 
@@ -40,6 +41,7 @@ public class Comprobante extends BasicAttributes {
     }
     
     @Column(name = "fecha")
+    @Temporal(javax.persistence.TemporalType.DATE)
     public Calendar getFecha() {
         return fecha;
     }
@@ -67,8 +69,7 @@ public class Comprobante extends BasicAttributes {
         this.estatus = estatus;
     }
     
-
-    @OneToMany(mappedBy = "asientoComprobante")
+    @OneToMany(mappedBy = "comprobante")
       public List<Asiento> getAsientos() {
         return asientos;
     }

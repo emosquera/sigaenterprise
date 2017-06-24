@@ -67,7 +67,8 @@ public class PayOrder extends BasicAttributes{
         this.description = description;
     }
 
-    @OneToMany
+    
+    @OneToMany(mappedBy = "payOrder")
     public List<BudgetaryImputation> getBudgetaryImputations() {
         return budgetaryImputations;
     }

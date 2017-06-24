@@ -6,6 +6,7 @@
 package sigaenterprise.backend.treasury.model;
 
 import java.math.BigDecimal;
+import java.util.Iterator;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import sigaenterprise.backend.auth.model.BasicAttributes;
-import sigaenterprise.backend.enums.PayOrderStatus;
+import sigaenterprise.backend.enums.treasury.PayOrderStatus;
 
 /**
  *
@@ -26,7 +27,6 @@ import sigaenterprise.backend.enums.PayOrderStatus;
 public class PayOrder extends BasicAttributes{
     private String numberOrder;
     private Beneficiary beneficiary;
-    private BigDecimal amount;
     private String description;
     private List<BudgetaryImputation> budgetaryImputations;
     private PayOrderStatus status;
@@ -47,15 +47,6 @@ public class PayOrder extends BasicAttributes{
 
     public void setBeneficiary(Beneficiary beneficiary) {
         this.beneficiary = beneficiary;
-    }
-
-    @Column(name = "amount")
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
     }
 
     @Column(name = "description")
@@ -85,6 +76,14 @@ public class PayOrder extends BasicAttributes{
 
     public void setStatus(PayOrderStatus status) {
         this.status = status;
+    }
+    
+    public BigDecimal getTotalAmount(){
+        BigDecimal totalAmount = new BigDecimal(0);
+        for (BudgetaryImputation budgetaryImputation : budgetaryImputations) {
+            totalAmount.add(budgetaryImputation.getMount());
+        }
+        return totalAmount;
     }
     
     

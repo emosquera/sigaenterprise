@@ -8,11 +8,11 @@
   </parent>
 
     <groupId>com.sigaenterprise</groupId>
-    <artifactId>sigaenterprise_backend_contabilidad_client</artifactId>
+    <artifactId>sigaenterprise_backend_budget</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>ejb</packaging>
 
-    <name>sigaenterprise_backend_contabilidad_client</name>
+    <name>sigaenterprise_backend_budget</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -21,8 +21,20 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.5.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
+            <version>2.5.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>sigaenterprise_backend_full_model</artifactId>
+            <artifactId>sigaenterprise_backend_budget_client</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

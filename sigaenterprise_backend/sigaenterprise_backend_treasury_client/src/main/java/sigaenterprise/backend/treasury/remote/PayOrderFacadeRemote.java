@@ -5,6 +5,7 @@
  */
 package sigaenterprise.backend.treasury.remote;
 
+import java.util.List;
 import javax.ejb.Remote;
 import sigaenterprise.backend.treasury.model.PayOrder;
 
@@ -15,12 +16,19 @@ import sigaenterprise.backend.treasury.model.PayOrder;
 
 @Remote
 public interface PayOrderFacadeRemote {
-    public final String JNDI_REMOTE_NAME = "ejb/userFacadeRemote";
+    public final String JNDI_REMOTE_NAME = "ejb/payOrderFacadeRemote";
     
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public PayOrder findUser(Long id);
+    void create(PayOrder asiento);
+
+    void edit(PayOrder asiento);
+
+    void remove(PayOrder asiento);
+
+    PayOrder find(Object id);
+
+    List<PayOrder> findAll();
+
+    List<PayOrder> findRange(int[] range);
+
+    int count();
 }

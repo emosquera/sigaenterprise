@@ -7,13 +7,15 @@ package sigaenterprise.backend.bienes.model;
 
 import java.util.Calendar;
 import java.util.List;
-import javax.naming.directory.BasicAttributes;
+import sigaenterprise.backend.auth.model.BasicAttributes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -22,16 +24,24 @@ import javax.persistence.TemporalType;
  * @author ogutierrez
  */
 @Entity
+@Table(name="insurance")
 public class Insurance extends BasicAttributes{
  
-    private static final long serialVersionUID = 1L;
-    private Long id;
     private String policy;
     private Calendar startDate;
     private Calendar endDate;
     private String nameInsurer;
     private MovableProperty movableProperty;
     //private 
+
+    @OneToOne(mappedBy="id")
+    public MovableProperty getMovableProperty() {
+        return movableProperty;
+    }
+
+    public void setMovableProperty(MovableProperty movableProperty) {
+        this.movableProperty = movableProperty;
+    }
 
     private List<InsuranceCoverage> insurancees;
 
@@ -85,20 +95,11 @@ public class Insurance extends BasicAttributes{
             
          
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -109,7 +110,7 @@ public class Insurance extends BasicAttributes{
             return false;
         }
         Insurance other = (Insurance) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.getId().equals(other.getId()))) {
             return false;
         }
         return true;
@@ -117,7 +118,7 @@ public class Insurance extends BasicAttributes{
 
     @Override
     public String toString() {
-        return "sigaenterprise.backend.bienes.model.Insurance[ id=" + id + " ]";
+        return "sigaenterprise.backend.bienes.model.Insurance[ id=" + getId() + " ]";
     }
     
 }

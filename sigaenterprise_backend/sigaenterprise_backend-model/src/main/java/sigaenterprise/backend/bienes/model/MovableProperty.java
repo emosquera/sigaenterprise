@@ -31,7 +31,8 @@ public class MovableProperty extends BasicAttributes {
     private Asset asset;
     private Insurance insurance;
 
-    @OneToOne(mappedBy="id")
+    
+    @OneToOne(mappedBy = "movableProperty")
     public Insurance getInsurance() {
         return insurance;
     }

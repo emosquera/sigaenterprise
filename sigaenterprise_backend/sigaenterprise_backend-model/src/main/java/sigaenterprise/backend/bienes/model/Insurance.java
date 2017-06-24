@@ -34,7 +34,8 @@ public class Insurance extends BasicAttributes{
     private MovableProperty movableProperty;
     //private 
 
-    @OneToOne(mappedBy="id")
+   
+    @OneToOne
     public MovableProperty getMovableProperty() {
         return movableProperty;
     }

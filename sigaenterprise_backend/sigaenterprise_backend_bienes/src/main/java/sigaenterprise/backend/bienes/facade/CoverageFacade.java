@@ -17,7 +17,7 @@ import sigaenterprise.backend.bienes.model.Coverage;
 @Stateless
 public class CoverageFacade extends AbstractFacade<Coverage> implements CoverageFacadeLocal {
 
-    @PersistenceContext(unitName = "com.sigaenterprise_sigaenterprise_backend_bienes_ejb_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "sigaenterprise_backend_PU")
     private EntityManager em;
 
     @Override

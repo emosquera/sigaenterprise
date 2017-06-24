@@ -67,8 +67,9 @@ public class Comprobante extends BasicAttributes {
         this.estatus = estatus;
     }
     
+
     @OneToMany(mappedBy = "asientoComprobante")
-    public List<Asiento> getAsientos() {
+      public List<Asiento> getAsientos() {
         return asientos;
     }
 
@@ -82,6 +83,8 @@ public class Comprobante extends BasicAttributes {
         hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
+
+  
 
     @Override
     public boolean equals(Object object) {

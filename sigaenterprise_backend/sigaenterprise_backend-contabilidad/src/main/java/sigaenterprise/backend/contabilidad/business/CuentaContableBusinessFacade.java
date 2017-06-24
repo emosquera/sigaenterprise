@@ -5,13 +5,14 @@
  */
 package sigaenterprise.backend.contabilidad.business;
 
+
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import javax.ejb.Remote;
 import sigaenterprise.backend.contabilidad.facade.CuentaContableFacadeLocal;
-import sigaenterprise.backend.contabilidad.model.CuentaContable;
+import sigaenterprise.backend.contabilidad.model.Asiento;
 import sigaenterprise.backend.contabilidad.remote.CuentaContableFacadeRemote;
 
 /**
@@ -25,33 +26,34 @@ public class CuentaContableBusinessFacade implements CuentaContableFacadeRemote 
     @EJB
     CuentaContableFacadeLocal cuentaContableFacadeLocal;
     
+
     @Override
-    public void create(CuentaContable cuentaContable) {
+    public void create(Asiento cuentaContable) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void edit(CuentaContable cuentaContable) {
+    public void edit(Asiento cuentaContable) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void remove(CuentaContable cuentaContable) {
+    public void remove(Asiento cuentaContable) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public CuentaContable find(Object id) {
+    public Asiento find(Object id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<CuentaContable> findAll() {
+    public List<Asiento> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<CuentaContable> findRange(int[] range) {
+    public List<Asiento> findRange(int[] range) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -59,7 +61,4 @@ public class CuentaContableBusinessFacade implements CuentaContableFacadeRemote 
     public int count() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
 }

@@ -18,7 +18,7 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author MiguelAngel
  */
 @Entity
-@Table(name = "budgetheading")
+@Table(name = "budgetheadings")
 public class BudgetHeading  extends BasicAttributes {
     
     private String budgetCode;

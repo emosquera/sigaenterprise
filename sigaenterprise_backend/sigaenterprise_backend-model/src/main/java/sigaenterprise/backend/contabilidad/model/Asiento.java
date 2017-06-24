@@ -5,14 +5,11 @@
  */
 package sigaenterprise.backend.contabilidad.model;
 
-import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -24,14 +21,14 @@ import sigaenterprise.backend.enums.TipoCuenta;
  * @author syslife01
  */
 @Entity
-@Table(name = "asiento")
+@Table(name = "asientos")
 public class Asiento extends BasicAttributes{
 
     private String codigoContable;
     private String descripcion;
     private TipoCuenta tipoAsiento;
     private Boolean ultimoNivel;
-    private Comprobante comprobante;
+    private Comprobante asientoComprobante;
     private CuentaContable cuentaContable;
     
     @Column(name = "codigoContable")
@@ -72,12 +69,12 @@ public class Asiento extends BasicAttributes{
     }
     
     @ManyToOne
-    public Comprobante getComprobante() {
-        return comprobante;
+    public Comprobante getAsientoComprobante() {
+        return asientoComprobante;
     }
-
-    public void setComprobante(Comprobante comprobante) {
-        this.comprobante = comprobante;
+    
+    public void setAsientoComprobante(Comprobante comprobante) {
+        this.asientoComprobante = comprobante;
     }
     
     @OneToOne

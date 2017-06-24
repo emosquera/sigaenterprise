@@ -21,7 +21,7 @@ import sigaenterprise.backend.enums.EstatusComprobante;
  * @author syslife01
  */
 @Entity
-@Table(name = "comprobante")
+@Table(name = "comprobantes")
 public class Comprobante extends BasicAttributes {
     
     private Integer numero;

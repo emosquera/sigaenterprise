@@ -7,48 +7,47 @@ package sigaenterprise.backend.bienes.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 
 /**
  *
  * @author Desiree
  */
-@Entity
+
 public class InsuranceCoverageId implements Serializable {
     
-    private Long insuranceid;
-    private Long coverageid;
+    private Long insuranceId;
+    private Long coverageId;
     
-    @Column(name="insurance_id")
-    public Long getInsuranceid() {
-        return insuranceid;
+    @Column(name="insuranceId")
+    public Long getInsuranceId() {
+        return insuranceId;
     }
 
-    public void setInsuranceid(Long insuranceid) {
-        this.insuranceid = insuranceid;
+    public void setInsuranceId(Long insuranceId) {
+        this.insuranceId = insuranceId;
     }
     
-    @Column(name="coverage_id")
-    public Long getCoverageid() {
-        return coverageid;
+    @Column(name="coverageId")
+    public Long getCoverageId() {
+        return coverageId;
     }
 
-    public void setCoverageid(Long coverageid) {
-        this.coverageid = coverageid;
+    public void setCoverageid(Long coverageId) {
+        this.coverageId = coverageId;
     }
     
     
 
     @Override
     public int hashCode() {
-       return (int)(insuranceid + coverageid);
+       return (int)(insuranceId + coverageId);
     }
 
     @Override
     public boolean equals(Object object) {
          if (object instanceof InsuranceCoverageId) {
             InsuranceCoverageId otherId = (InsuranceCoverageId) object;
-            return (otherId.insuranceid == this.insuranceid) && (otherId.coverageid == this.coverageid);
+            return (otherId.insuranceId == this.insuranceId) && (otherId.coverageId == this.coverageId);
           }
           return false;
     }

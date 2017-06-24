@@ -5,7 +5,6 @@
  */
 package sigaenterprise.backend.bienes.model;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 import javax.persistence.Column;

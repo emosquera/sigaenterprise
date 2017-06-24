@@ -16,7 +16,7 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author syslife01
  */
 @Entity
-@Table(name = "cuentaContable")
+@Table(name = "cuentaContables")
 public class CuentaContable extends BasicAttributes{
     
     private Double monto;

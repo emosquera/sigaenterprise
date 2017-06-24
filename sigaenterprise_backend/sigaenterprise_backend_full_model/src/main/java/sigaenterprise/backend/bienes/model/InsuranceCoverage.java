@@ -15,13 +15,12 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author Desiree
  */
 @Entity
-@Table(name="insuranceCoverage")
+@Table(name="insurance_coverage")
 public class InsuranceCoverage extends BasicAttributes {
     
     private Insurance insurance;
     private Coverage coverage;
     private double amount;
-
 
     @ManyToOne
     public Insurance getInsurance() {

@@ -17,14 +17,13 @@ import javax.persistence.Table;
  * @author Desiree
  */
 @Entity
-@Table(name="coverages")
+@Table(name="coverage")
 public class Coverage extends BasicAttributes {
-
-    private List<InsuranceCoverage> insuranceCoverages;
-       
+     
     private String code;   
     private String description;    
-    
+    private List<InsuranceCoverage> insuranceCoverages;    
+        
     @Column(name="code")
     public String getCode() {
         return code;
@@ -43,7 +42,15 @@ public class Coverage extends BasicAttributes {
         this.description = description;
     }
     
+    @OneToMany(mappedBy = "coverage")
+    public List<InsuranceCoverage> getInsuranceCoverages() {
+        return insuranceCoverages;
+    }
 
+    public void setInsuranceCoverages(List<InsuranceCoverage> insuranceCoverages) {
+        this.insuranceCoverages = insuranceCoverages;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -64,15 +71,5 @@ public class Coverage extends BasicAttributes {
     @Override
     public String toString() {
         return "sigaenterprise.backend.bienes.model.Coverage[ id=" + getId() + " ]";
-    }
-
-    @OneToMany(mappedBy = "coverage")
-    public List<InsuranceCoverage> getInsuranceCoverages() {
-        return insuranceCoverages;
-    }
-
-    public void setInsuranceCoverages(List<InsuranceCoverage> insuranceCoverages) {
-        this.insuranceCoverages = insuranceCoverages;
-    }
-    
+    }   
 }

@@ -24,25 +24,15 @@ import javax.persistence.TemporalType;
 @Table(name="insurance")
 public class Insurance extends BasicAttributes{
 
-    private List<InsuranceCoverage> insuranceCoverages;
- 
     private String policy;
     private Calendar startDate;
     private Calendar endDate;
     private String nameInsurer;
     private MovableProperty movableProperty;
+    private List<InsuranceCoverage> insuranceCoverages;    
 
 
-    @OneToOne
-    public MovableProperty getMovableProperty() {
-        return movableProperty;
-    }
-
-    public void setMovableProperty(MovableProperty movableProperty) {
-        this.movableProperty = movableProperty;
-    }
-
-        
+    
     @Column(name = "policy")
     public String getPolicy() {
         return policy;
@@ -52,7 +42,7 @@ public class Insurance extends BasicAttributes{
         this.policy = policy;
     }
 
-    @Column(name = "startDate")
+    @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
     public Calendar getStartDate() {
         return startDate;
@@ -62,7 +52,7 @@ public class Insurance extends BasicAttributes{
         this.startDate = startDate;
     }
 
-    @Column(name = "endDate")
+    @Column(name = "end_date")
     @Temporal(TemporalType.DATE)
     public Calendar getEndDate() {
         return endDate;
@@ -72,7 +62,7 @@ public class Insurance extends BasicAttributes{
         this.endDate = endDate;
     }
 
-    @Column(name = "nameInsurer")
+    @Column(name = "name_insurer")
     public String getNameInsurer() {
         return nameInsurer;
     }
@@ -81,6 +71,24 @@ public class Insurance extends BasicAttributes{
         this.nameInsurer = nameInsurer;
     }
 
+    @OneToOne
+    public MovableProperty getMovableProperty() {
+        return movableProperty;
+    }
+
+    public void setMovableProperty(MovableProperty movableProperty) {
+        this.movableProperty = movableProperty;
+    }
+    
+    @OneToMany(mappedBy = "insurance")
+    public List<InsuranceCoverage> getInsuranceCoverages() {
+        return insuranceCoverages;
+    }
+
+    public void setInsuranceCoverages(List<InsuranceCoverage> insuranceCoverages) {
+        this.insuranceCoverages = insuranceCoverages;
+    }    
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -102,14 +110,4 @@ public class Insurance extends BasicAttributes{
     public String toString() {
         return "sigaenterprise.backend.bienes.model.Insurance[ id=" + getId() + " ]";
     }    
-
-    @OneToMany(mappedBy = "insurance")
-    public List<InsuranceCoverage> getInsuranceCoverages() {
-        return insuranceCoverages;
-    }
-
-    public void setInsuranceCoverages(List<InsuranceCoverage> insuranceCoverages) {
-        this.insuranceCoverages = insuranceCoverages;
-    }
-
 }

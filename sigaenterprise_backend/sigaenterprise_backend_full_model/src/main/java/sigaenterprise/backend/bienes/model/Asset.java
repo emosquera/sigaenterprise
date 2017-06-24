@@ -17,7 +17,7 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author desarrollo01
  */
 @Entity
-@Table(name="assets")
+@Table(name="asset")
 public class Asset extends BasicAttributes {
     private String code;
     private String description;

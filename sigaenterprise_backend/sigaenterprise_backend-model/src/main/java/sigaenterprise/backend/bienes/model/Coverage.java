@@ -20,7 +20,9 @@ import javax.persistence.Table;
 @Table(name="coverages")
 public class Coverage extends BasicAttributes {
     
+    @Column(name="code")
     private String code;
+    @Column(name="description")
     private String description;
     @OneToMany
     private List<InsuranceCoverage> insurances;
@@ -29,12 +31,11 @@ public class Coverage extends BasicAttributes {
         return insurances;
     }
 
-    public void setSeguros(List<InsuranceCoverage> insurances) {
+    public void setInsurances(List<InsuranceCoverage> insurances) {
         this.insurances = insurances;
     }
     
     
-    @Column(name="code")
     public String getCode() {
         return code;
     }
@@ -43,7 +44,6 @@ public class Coverage extends BasicAttributes {
         this.code = code;
     }
     
-    @Column(name="description")
     public String getDescription() {
         return description;
     }

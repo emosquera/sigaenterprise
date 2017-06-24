@@ -19,14 +19,30 @@ import javax.persistence.Table;
 @Entity
 @Table(name="coverages")
 public class Coverage extends BasicAttributes {
+       
+    private String code;   
+    private String description;    
+    private List<InsuranceCoverage> insurances;
     
     @Column(name="code")
-    private String code;
-    @Column(name="description")
-    private String description;
-    @OneToMany
-    private List<InsuranceCoverage> insurances;
+    public String getCode() {
+        return code;
+    }
 
+    public void setCodigo(String code) {
+        this.code = code;
+    }
+     @Column(name="description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+   
+    @OneToMany(mappedBy = "coverage")
     public List<InsuranceCoverage> getInsurances() {
         return insurances;
     }
@@ -35,22 +51,6 @@ public class Coverage extends BasicAttributes {
         this.insurances = insurances;
     }
     
-    
-    public String getCode() {
-        return code;
-    }
-
-    public void setCodigo(String code) {
-        this.code = code;
-    }
-    
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     @Override
     public int hashCode() {

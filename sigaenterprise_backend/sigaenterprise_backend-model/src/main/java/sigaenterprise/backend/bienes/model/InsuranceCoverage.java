@@ -7,9 +7,7 @@ package sigaenterprise.backend.bienes.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import sigaenterprise.backend.auth.model.BasicAttributes;
 /**
@@ -20,50 +18,11 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
 @Table(name="insuranceCoverage")
 public class InsuranceCoverage extends BasicAttributes {
     
-    @Column(name="insuranceId")
-    @Id
-    private Long insuranceId;
-    
-    @Column(name="coverageId")
-    @Id
-    private Long coverageId;
-    
-    @Column(name="amount")
-    private double amount;
-    
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name="insuranceId", referencedColumnName="ID")
     private Insurance insurance;
-    
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name="coverageId", referencedColumnName="ID")
     private Coverage coverage;
-    
-    public Long getInsuranceId() {
-        return insuranceId;
-    }
+    private double amount;
 
-    public void setInsuranceId(Long insuranceId) {
-        this.insuranceId = insuranceId;
-    }
-    
-    public Long getCoverageId() {
-        return coverageId;
-    }
-
-    public void setCoverageId(Long coverageId) {
-        this.coverageId = coverageId;
-    }
-    
-    
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
+    @ManyToOne
     public Insurance getInsurance() {
         return insurance;
     }
@@ -72,6 +31,7 @@ public class InsuranceCoverage extends BasicAttributes {
         this.insurance = insurance;
     }
 
+    @ManyToOne
     public Coverage getCoverage() {
         return coverage;
     }
@@ -79,8 +39,16 @@ public class InsuranceCoverage extends BasicAttributes {
     public void setCoverage(Coverage coverage) {
         this.coverage = coverage;
     }
+
+    @Column(name="amount")
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
     
-   
     @Override
     public int hashCode() {
         int hash = 0;

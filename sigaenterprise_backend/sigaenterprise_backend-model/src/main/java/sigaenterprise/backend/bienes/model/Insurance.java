@@ -29,28 +29,7 @@ public class Insurance extends BasicAttributes{
     private Calendar endDate;
     private String nameInsurer;
     private MovableProperty movableProperty;
-    //private 
-
-   
-    @OneToOne
-    public MovableProperty getMovableProperty() {
-        return movableProperty;
-    }
-
-    public void setMovableProperty(MovableProperty movableProperty) {
-        this.movableProperty = movableProperty;
-    }
-
     private List<InsuranceCoverage> insurancees;
-
-    @OneToMany
-    public List<InsuranceCoverage> getInsurancees() {
-        return insurancees;
-    }
-
-    public void setCoverage(List<InsuranceCoverage> insurancees) {
-        this.insurancees = insurancees;
-    }
     
     @Column(name = "policy")
     public String getPolicy() {
@@ -90,9 +69,24 @@ public class Insurance extends BasicAttributes{
         this.nameInsurer = nameInsurer;
     }
     
+    @OneToOne
+    public MovableProperty getMovableProperty() {
+        return movableProperty;
+    }
+
+    public void setMovableProperty(MovableProperty movableProperty) {
+        this.movableProperty = movableProperty;
+    }
             
          
-
+    @OneToMany(mappedBy = "insurance")
+    public List<InsuranceCoverage> getInsurancees() {
+        return insurancees;
+    }
+    
+    public void setInsurancees(List<InsuranceCoverage> insurancees) {
+        this.insurancees = insurancees;
+    }
 
     @Override
     public int hashCode() {
@@ -108,15 +102,11 @@ public class Insurance extends BasicAttributes{
             return false;
         }
         Insurance other = (Insurance) object;
-        if ((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.getId().equals(other.getId()))) {
-            return false;
-        }
-        return true;
+        return !((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.getId().equals(other.getId())));
     }
 
     @Override
     public String toString() {
         return "sigaenterprise.backend.bienes.model.Insurance[ id=" + getId() + " ]";
-    }
-    
+    }    
 }

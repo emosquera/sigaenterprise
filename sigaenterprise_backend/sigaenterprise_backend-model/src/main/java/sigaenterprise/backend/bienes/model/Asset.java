@@ -23,15 +23,6 @@ public class Asset extends BasicAttributes {
     private String description;
     private List<MovableProperty> movableProperty;
 
-    @OneToMany(mappedBy = "asset")
-    public List<MovableProperty> getMovableProperty() {
-        return movableProperty;
-    }
-
-    public void setMovableProperty(List<MovableProperty> movableProperty) {
-        this.movableProperty = movableProperty;
-    }
-    
     @Column(name = "code")
     public String getCode() {
         return code;
@@ -49,6 +40,16 @@ public class Asset extends BasicAttributes {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    @OneToMany(mappedBy = "asset")
+    public List<MovableProperty> getMovableProperty() {
+        return movableProperty;
+    }
+
+    public void setMovableProperty(List<MovableProperty> movableProperty) {
+        this.movableProperty = movableProperty;
+    }
+    
 
     @Override
     public int hashCode() {
@@ -69,7 +70,7 @@ public class Asset extends BasicAttributes {
 
     @Override
     public String toString() {
-        return "sigaenterprise.backend.bienes.model.Activo[ id=" + getId() + " ]";
+        return "sigaenterprise.backend.bienes.model.Asset[ id=" + getId() + " ]";
     }
     
 }

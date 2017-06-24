@@ -30,17 +30,7 @@ public class MovableProperty extends BasicAttributes {
     private double initialValue;    
     private Asset asset;
     private Insurance insurance;
-
-    
-    @OneToOne(mappedBy = "movableProperty")
-    public Insurance getInsurance() {
-        return insurance;
-    }
-
-    public void setInsurance(Insurance insurance) {
-        this.insurance = insurance;
-    }   
-       
+        
     @Column(name="code")
     public String getCode() {
         return code;
@@ -85,6 +75,15 @@ public class MovableProperty extends BasicAttributes {
     public void setActivo(Asset asset) {
         this.asset = asset;
     }
+    
+    @OneToOne(mappedBy = "movableProperty")
+    public Insurance getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }     
            
     @Override
     public int hashCode() {

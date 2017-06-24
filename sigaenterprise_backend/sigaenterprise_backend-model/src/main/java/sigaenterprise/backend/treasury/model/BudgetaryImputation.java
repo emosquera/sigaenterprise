@@ -11,8 +11,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import sigaenterprise.backend.auth.model.BasicAttributes;
 
 
@@ -31,7 +29,7 @@ public class BudgetaryImputation  extends BasicAttributes{
     private BigDecimal mountRet;
     
     
-    @OneToMany(mappedBy = "numberOrder")
+    @ManyToOne
     public PayOrder getBudgetHeading() {
         return budgetHeading;
     }
@@ -40,7 +38,7 @@ public class BudgetaryImputation  extends BasicAttributes{
         this.budgetHeading = budgetHeading;
     }
     
-    @OneToOne(mappedBy = "budgetCode")
+    @ManyToOne
     public BudgetHeading getImputationHeading() {
         return imputationHeading;
     }

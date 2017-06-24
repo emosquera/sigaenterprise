@@ -7,7 +7,7 @@ package sigaenterprise.backend.bienes.facade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import sigaenterprise.backend.bienes.model.Activo;
+import sigaenterprise.backend.bienes.model.Asset;
 
 
 /**
@@ -15,7 +15,7 @@ import sigaenterprise.backend.bienes.model.Activo;
  * @author ogutierrez
  */
 @Stateless
-public class ActivoFacade extends AbstractFacade<Activo> implements ActivoFacadeLocal {
+public class AssetFacade extends AbstractFacade<Asset> implements AssetFacadeLocal {
 
     @PersistenceContext(unitName = "sigaenterprise_backend_PU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class ActivoFacade extends AbstractFacade<Activo> implements ActivoFacade
         return em;
     }
     
-    public ActivoFacade() {
-        super(Activo.class);
+    public AssetFacade() {
+        super(Asset.class);
     }
 
 

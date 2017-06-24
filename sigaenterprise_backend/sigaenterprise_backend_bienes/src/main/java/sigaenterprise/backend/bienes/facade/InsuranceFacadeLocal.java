@@ -7,25 +7,25 @@ package sigaenterprise.backend.bienes.facade;
 
 import java.util.List;
 import javax.ejb.Local;
-import sigaenterprise.backend.bienes.model.Seguro;
+import sigaenterprise.backend.bienes.model.Insurance;
 
 /**
  *
  * @author ogutierrez
  */
 @Local
-public interface SeguroFacadeLocal {
-    void create(Seguro activo);
+public interface InsuranceFacadeLocal {
+    void create(Insurance activo);
     
-    void edit(Seguro activo);
+    void edit(Insurance activo);
     
-    void remove(Seguro activo);
+    void remove(Insurance activo);
     
-    Seguro find(Object id);
+    Insurance find(Object id);
     
-    List<Seguro> findAll();
+    List<Insurance> findAll();
     
-    List<Seguro> findRange(int[] range);
+    List<Insurance> findRange(int[] range);
     
     int count();    
 }

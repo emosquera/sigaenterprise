@@ -7,7 +7,6 @@ package sigaenterprise.backend.bienes.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,63 +22,63 @@ import javax.persistence.TemporalType;
  * @author ogutierrez
  */
 @Entity
-public class Seguro implements Serializable {
+public class Insurance implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String poliza;
-    private Calendar fecini;
-    private Calendar fecfin;
-    private String aseguradora;
+    private String policy;
+    private Calendar start_date;
+    private Calendar end_date;
+    private String name_insurer;
     //private 
 
     @OneToMany
-    private List<SeguroCobertura> coberturas;
+    private List<InsuranceCoverage> insurancees;
 
-    @Column(name = "poliza")
-    public String getPoliza() {
-        return poliza;
+    public List<InsuranceCoverage> getInsurancees() {
+        return insurancees;
     }
 
-    public List<SeguroCobertura> getCoberturas() {
-        return coberturas;
+    public void setCoberturas(List<InsuranceCoverage> insurancees) {
+        this.insurancees = insurancees;
+    }
+    
+    @Column(name = "policy")
+    public String getPolicy() {
+        return policy;
+    }
+    
+    public void setPoliza(String policy) {
+        this.policy = policy;
     }
 
-    public void setCoberturas(List<SeguroCobertura> coberturas) {
-        this.coberturas = coberturas;
-    }
-
-    public void setPoliza(String poliza) {
-        this.poliza = poliza;
-    }
-
-    @Column(name = "fecini")
+    @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
-    public Calendar getFecini() {
-        return fecini;
+    public Calendar getStartDate() {
+        return start_date;
     }
 
-    public void setFecini(Calendar fecini) {
-        this.fecini = fecini;
+    public void setFecini(Calendar start_date) {
+        this.start_date = start_date;
     }
 
-    @Column(name = "fecfin")
+    @Column(name = "end_date")
     @Temporal(TemporalType.DATE)
-    public Calendar getFecfin() {
-        return fecfin;
+    public Calendar getEndDate() {
+        return end_date;
     }
 
-    public void setFecfin(Calendar fecfin) {
-        this.fecfin = fecfin;
+    public void setFecfin(Calendar end_date) {
+        this.end_date = end_date;
     }
 
-    @Column(name = "aseguradora")
-    public String getAseguradora() {
-        return aseguradora;
+    @Column(name = "name_insurer")
+    public String getNameInsurer() {
+        return name_insurer;
     }
 
-    public void setAseguradora(String aseguradora) {
-        this.aseguradora = aseguradora;
+    public void setNameInsurer(String name_insurer) {
+        this.name_insurer = name_insurer;
     }
     
             
@@ -105,10 +104,10 @@ public class Seguro implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Seguro)) {
+        if (!(object instanceof Insurance)) {
             return false;
         }
-        Seguro other = (Seguro) object;
+        Insurance other = (Insurance) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -117,7 +116,7 @@ public class Seguro implements Serializable {
 
     @Override
     public String toString() {
-        return "sigaenterprise.backend.bienes.model.Seguro[ id=" + id + " ]";
+        return "sigaenterprise.backend.bienes.model.Insurance[ id=" + id + " ]";
     }
     
 }

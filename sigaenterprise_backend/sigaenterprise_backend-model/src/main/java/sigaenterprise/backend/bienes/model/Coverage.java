@@ -17,39 +17,39 @@ import javax.persistence.Table;
  * @author Desiree
  */
 @Entity
-@Table(name="coberturas")
-public class Cobertura extends BasicAttributes {
+@Table(name="coverages")
+public class Coverage extends BasicAttributes {
     
-    private String codigo;
-    private String descripcion;
+    private String code;
+    private String description;
     @OneToMany
-    private List<SeguroCobertura> seguros;
+    private List<InsuranceCoverage> insurances;
 
-    public List<SeguroCobertura> getSeguros() {
-        return seguros;
+    public List<InsuranceCoverage> getInsurances() {
+        return insurances;
     }
 
-    public void setSeguros(List<SeguroCobertura> seguros) {
-        this.seguros = seguros;
+    public void setSeguros(List<InsuranceCoverage> insurances) {
+        this.insurances = insurances;
     }
     
     
-    @Column(name="codcob")
-    public String getCodigo() {
-        return codigo;
+    @Column(name="code")
+    public String getCode() {
+        return code;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigo(String code) {
+        this.code = code;
     }
     
-    @Column(name="descob")
-    public String getDescripcion() {
-        return descripcion;
+    @Column(name="description")
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -62,16 +62,16 @@ public class Cobertura extends BasicAttributes {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cobertura)) {
+        if (!(object instanceof Coverage)) {
             return false;
         }
-        Cobertura other = (Cobertura) object;
+        Coverage other = (Coverage) object;
         return !((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.getId().equals(other.getId())));
     }
 
     @Override
     public String toString() {
-        return "sigaenterprise.backend.bienes.model.Cobertura[ id=" + getId() + " ]";
+        return "sigaenterprise.backend.bienes.model.Coverage[ id=" + getId() + " ]";
     }
     
 }

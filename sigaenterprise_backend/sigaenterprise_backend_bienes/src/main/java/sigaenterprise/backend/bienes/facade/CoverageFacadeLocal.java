@@ -7,26 +7,27 @@ package sigaenterprise.backend.bienes.facade;
 
 import java.util.List;
 import javax.ejb.Local;
-import sigaenterprise.backend.bienes.model.Mueble;
+import sigaenterprise.backend.bienes.model.Coverage;
 
 /**
  *
  * @author Desiree
  */
 @Local
-public interface MuebleFacadeLocal {
+public interface CoverageFacadeLocal {
+
+    void create(Coverage cobertura);
+
+    void edit(Coverage cobertura);
+
+    void remove(Coverage cobertura);
+
+    Coverage find(Object id);
+
+    List<Coverage> findAll();
+
+    List<Coverage> findRange(int[] range);
+
+    int count();
     
-    void create(Mueble mueble);
-
-    void edit(Mueble mueble);
-
-    void remove(Mueble mueble);
-
-    Mueble find(Object id);
-
-    List<Mueble> findAll();
-
-    List<Mueble> findRange(int[] range);
-
-    int count();   
 }

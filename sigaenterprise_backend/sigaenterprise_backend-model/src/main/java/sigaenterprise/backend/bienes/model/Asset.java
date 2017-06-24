@@ -17,38 +17,38 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author desarrollo01
  */
 @Entity
-@Table(name="activos")
-public class Activo extends BasicAttributes {
-    private String codigo;
-    private String descripcion;
+@Table(name="assets")
+public class Asset extends BasicAttributes {
+    private String code;
+    private String description;
     
-    private List<Mueble> mueble;
+    private List<MovableProperty> movable_property;
 
     @OneToMany
-    public List<Mueble> getMueble() {
-        return mueble;
+    public List<MovableProperty> getMovableProperty() {
+        return movable_property;
     }
 
-    public void setMueble(List<Mueble> mueble) {
-        this.mueble = mueble;
+    public void setMueble(List<MovableProperty> movable_property) {
+        this.movable_property = movable_property;
     }
     
-    @Column(name = "codact")
-    public String getCodigo() {
-        return codigo;
+    @Column(name = "code")
+    public String getCode() {
+        return code;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    @Column(name = "desact")
-    public String getDescripcion() {
-        return descripcion;
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcion(String description) {
+        this.description = description;
     }
 
     @Override
@@ -61,10 +61,10 @@ public class Activo extends BasicAttributes {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof  Activo)) {
+        if (!(object instanceof  Asset)) {
             return false;
         }
-        Activo other = (Activo) object;
+        Asset other = (Asset) object;
         return !((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.getId().equals(other.getId())));
     }
 

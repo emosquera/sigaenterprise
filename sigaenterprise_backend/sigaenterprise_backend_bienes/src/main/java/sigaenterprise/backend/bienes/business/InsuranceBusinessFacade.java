@@ -7,24 +7,23 @@ package sigaenterprise.backend.bienes.business;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ejb.LocalBean;
 import javax.ejb.Remote;
-import sigaenterprise.backend.bienes.facade.SeguroFacadeLocal;
-import sigaenterprise.backend.bienes.model.Seguro;
-import sigaenterprise.backend.bienes.remote.SeguroFacadeRemote;
+import sigaenterprise.backend.bienes.facade.InsuranceFacadeLocal;
+import sigaenterprise.backend.bienes.model.Insurance;
+import sigaenterprise.backend.bienes.remote.InsuranceFacadeRemote;
 
 /**
  *
  * @author ogutierrez
  */
-@Stateless(name="seguroFacadeRemote", mappedName=SeguroFacadeRemote.JDNI_REMOTE_NAME)
-@Remote(SeguroFacadeRemote.class)
-public class SeguroBusinessFacade implements SeguroFacadeRemote {
+@Stateless(name="insuranceFacadeRemote", mappedName=InsuranceFacadeRemote.JDNI_REMOTE_NAME)
+@Remote(InsuranceFacadeRemote.class)
+public class InsuranceBusinessFacade implements InsuranceFacadeRemote {
 
     @EJB
-    SeguroFacadeLocal seguroFacadeLocal;
+    InsuranceFacadeLocal insuranceFacadeLocal;
     @Override
-    public Seguro findSeguro(Long id) {
+    public Insurance findInsurance(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

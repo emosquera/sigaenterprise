@@ -8,15 +8,14 @@ package sigaenterprise.backend.bienes.facade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import sigaenterprise.backend.bienes.model.Activo;
-import sigaenterprise.backend.bienes.model.Seguro;
+import sigaenterprise.backend.bienes.model.Insurance;
 
 /**
  *
  * @author ogutierrez
  */
 @Stateless
-public class SeguroFacade extends AbstractFacade<Seguro> implements SeguroFacadeLocal {
+public class InsuranceFacade extends AbstractFacade<Insurance> implements InsuranceFacadeLocal {
 
     @PersistenceContext(unitName = "sigaenterprise_backend_PU")
     private EntityManager em;
@@ -26,8 +25,8 @@ public class SeguroFacade extends AbstractFacade<Seguro> implements SeguroFacade
         return em;
     }
     
-    public SeguroFacade(){
-       super(Seguro.class);
+    public InsuranceFacade(){
+       super(Insurance.class);
     }
     
 }

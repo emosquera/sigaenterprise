@@ -8,14 +8,14 @@ package sigaenterprise.backend.bienes.facade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import sigaenterprise.backend.bienes.model.Cobertura;
+import sigaenterprise.backend.bienes.model.MovableProperty;
 
 /**
  *
  * @author Desiree
  */
 @Stateless
-public class CoberturaFacade extends AbstractFacade<Cobertura> implements CoberturaFacadeLocal {
+public class MovablePropertyFacade extends AbstractFacade<MovableProperty> implements MovablePropertyFacadeLocal {
 
     @PersistenceContext(unitName = "com.sigaenterprise_sigaenterprise_backend_bienes_ejb_1.0-SNAPSHOTPU")
     private EntityManager em;
@@ -25,8 +25,7 @@ public class CoberturaFacade extends AbstractFacade<Cobertura> implements Cobert
         return em;
     }
 
-    public CoberturaFacade() {
-        super(Cobertura.class);
+    public MovablePropertyFacade() {
+        super(MovableProperty.class);
     }
-    
 }

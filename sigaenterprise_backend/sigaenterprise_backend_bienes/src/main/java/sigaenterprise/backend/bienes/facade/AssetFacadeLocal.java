@@ -7,25 +7,25 @@ package sigaenterprise.backend.bienes.facade;
 
 import java.util.List;
 import javax.ejb.Local;
-import sigaenterprise.backend.bienes.model.Activo;
+import sigaenterprise.backend.bienes.model.Asset;
 
 /**
  *
  * @author ogutierrez
  */
 @Local
-public interface ActivoFacadeLocal {
-    void create(Activo activo);
+public interface AssetFacadeLocal {
+    void create(Asset activo);
     
-    void edit(Activo activo);
+    void edit(Asset activo);
     
-    void remove(Activo activo);
+    void remove(Asset activo);
     
-    Activo find(Object id);
+    Asset find(Object id);
     
-    List<Activo> findAll();
+    List<Asset> findAll();
     
-    List<Activo> findRange(int[] range);
+    List<Asset> findRange(int[] range);
     
     int count();
 }

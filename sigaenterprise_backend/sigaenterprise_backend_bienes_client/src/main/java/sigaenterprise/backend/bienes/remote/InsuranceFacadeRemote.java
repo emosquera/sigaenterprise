@@ -6,15 +6,15 @@
 package sigaenterprise.backend.bienes.remote;
 
 import javax.ejb.Remote;
-import sigaenterprise.backend.bienes.model.Activo;
+import sigaenterprise.backend.bienes.model.Insurance;
 
 /**
  *
  * @author ogutierrez
  */
 @Remote
-public interface ActivoFacadeRemote {
-    public final String JDNI_REMOTE_NAME="ejb/activoFacadeRemote";
+public interface InsuranceFacadeRemote {
+    public final String JDNI_REMOTE_NAME="ejb/insuranceFacadeRemote";
     
-    public Activo findActivo(Long id);
+    public Insurance findInsurance(Long id);    
 }

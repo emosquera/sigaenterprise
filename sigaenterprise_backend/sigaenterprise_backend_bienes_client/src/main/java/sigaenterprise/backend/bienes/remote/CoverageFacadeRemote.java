@@ -6,21 +6,15 @@
 package sigaenterprise.backend.bienes.remote;
 
 import javax.ejb.Remote;
-import sigaenterprise.backend.bienes.model.Mueble;
+import sigaenterprise.backend.bienes.model.Coverage;
 
 /**
  *
  * @author Desiree
  */
 @Remote
-public interface MuebleFacadeRemote {
-    public final String JNDI_REMOTE_NAME="ejb/muebleFacadeRemote";
-     
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public Mueble findMueble(Long id);
+public interface CoverageFacadeRemote {
+    public final String JDNI_REMOTE_NAME="ejb/coverageFacadeRemote";
     
+    public Coverage findCoverage(Long id);
 }

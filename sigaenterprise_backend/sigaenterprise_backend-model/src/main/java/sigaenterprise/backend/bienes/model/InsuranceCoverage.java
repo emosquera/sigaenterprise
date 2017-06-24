@@ -6,6 +6,7 @@
 package sigaenterprise.backend.bienes.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,64 +21,67 @@ import javax.persistence.Table;
  * @author Desiree
  */
 @Entity
-@Table(name="seguro_cobertura")
-@IdClass(SeguroCoberturaId.class)
-public class SeguroCobertura implements Serializable {
+@Table(name="insurance_coverage")
+@IdClass(InsuranceCoverageId.class)
+public class InsuranceCoverage implements Serializable {
     
     @Id
-    private Long seguroid;
+    private Long insuranceid;
     
     @Id
-    private Long coberturaid;
+    private Long coverageid;
     
-    private double monto;
-    
-    @ManyToOne
-    @PrimaryKeyJoinColumn(name="seguroid", referencedColumnName="ID")
-    private Seguro seguro;
+    private double amount;
     
     @ManyToOne
-    @PrimaryKeyJoinColumn(name="coberturaid", referencedColumnName="ID")
-    private Cobertura cobertura;
-
-    public Long getSeguroid() {
-        return seguroid;
+    @PrimaryKeyJoinColumn(name="insuranceid", referencedColumnName="ID")
+    private Insurance insurance;
+    
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name="coverageid", referencedColumnName="ID")
+    private Coverage coverage;
+    
+    @Column(name="insurance_id")
+    public Long getInsuranceid() {
+        return insuranceid;
     }
 
-    public void setSeguroid(Long seguroid) {
-        this.seguroid = seguroid;
+    public void setInsuranceid(Long insuranceid) {
+        this.insuranceid = insuranceid;
+    }
+    
+    @Column(name="coverage_id")
+    public Long getCoverageid() {
+        return coverageid;
     }
 
-    public Long getCoberturaid() {
-        return coberturaid;
+    public void setCoverageid(Long coverageid) {
+        this.coverageid = coverageid;
+    }
+    
+    @Column(name="amount")
+    public double getAmount() {
+        return amount;
     }
 
-    public void setCoberturaid(Long coberturaid) {
-        this.coberturaid = coberturaid;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
-    public double getMonto() {
-        return monto;
+    public Insurance getInsurance() {
+        return insurance;
     }
 
-    public void setMonto(double monto) {
-        this.monto = monto;
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
     }
 
-    public Seguro getSeguro() {
-        return seguro;
+    public Coverage getCoverage() {
+        return coverage;
     }
 
-    public void setSeguro(Seguro seguro) {
-        this.seguro = seguro;
-    }
-
-    public Cobertura getCobertura() {
-        return cobertura;
-    }
-
-    public void setCobertura(Cobertura cobertura) {
-        this.cobertura = cobertura;
+    public void setCoverage(Coverage coverage) {
+        this.coverage = coverage;
     }
     
     
@@ -105,10 +109,10 @@ public class SeguroCobertura implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof SeguroCobertura)) {
+        if (!(object instanceof InsuranceCoverage)) {
             return false;
         }
-        SeguroCobertura other = (SeguroCobertura) object;
+        InsuranceCoverage other = (InsuranceCoverage) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

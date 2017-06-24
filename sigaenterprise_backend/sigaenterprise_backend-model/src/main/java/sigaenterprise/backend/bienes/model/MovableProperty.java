@@ -20,58 +20,58 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author Desiree
  */
 @Entity
-@Table(name="muebles")
-public class Mueble extends BasicAttributes {
+@Table(name="movable_propertys")
+public class MovableProperty extends BasicAttributes {
     
-    String codigo;
-    String descripcion;
-    Calendar fecha_compra;
-    double valor_inicial;    
-    Activo activo;
+    String code;
+    String description;
+    Calendar date_purchase;
+    double initial_value;    
+    Asset asset;
     
-    @Column(name="codmue")
-    public String getCodigo() {
-        return codigo;
+    @Column(name="code")
+    public String getCode() {
+        return code;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCode(String code) {
+        this.code = code;
     }
-    @Column(name="desmue")
-    public String getDescripcion() {
-        return descripcion;
+    @Column(name="description")
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
     
-    @Column(name="feccom")
+    @Column(name="date_purchase")
     @Temporal(TemporalType.DATE)
-    public Calendar getFecha_compra() {
-        return fecha_compra;
+    public Calendar getDatePurchase() {
+        return date_purchase;
     }
 
-    public void setFecha_compra(Calendar fecha_compra) {
-        this.fecha_compra = fecha_compra;
+    public void setDatePurchase(Calendar date_purchase) {
+        this.date_purchase = date_purchase;
     }
     
-    @Column(name="valini")
-    public double getValor_inicial() {
-        return valor_inicial;
+    @Column(name="initial_value")
+    public double getInitialValue() {
+        return initial_value;
     }
 
-    public void setValor_inicial(double valor_inicial) {
-        this.valor_inicial = valor_inicial;
+    public void setInitialValue(double initial_value) {
+        this.initial_value = initial_value;
     }
     
     @ManyToOne
-    public Activo getActivo() {
-        return activo;
+    public Asset getAsset() {
+        return asset;
     }
 
-    public void setActivo(Activo activo) {
-        this.activo = activo;
+    public void setActivo(Asset asset) {
+        this.asset = asset;
     }
            
     @Override
@@ -84,16 +84,16 @@ public class Mueble extends BasicAttributes {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Mueble)) {
+        if (!(object instanceof MovableProperty)) {
             return false;
         }
-        Mueble other = (Mueble) object;
+        MovableProperty other = (MovableProperty) object;
         return !((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.getId().equals(other.getId())));
     }
 
     @Override
     public String toString() {
-        return "sigaenterprise.backend.bienes.model.Mueble[ id=" + getId() + " ]";
+        return "sigaenterprise.backend.bienes.model.MovableProperty[ id=" + getId() + " ]";
     }
     
 }

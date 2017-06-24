@@ -7,6 +7,7 @@ package sigaenterprise.backend.bienes.model;
 
 import java.util.Calendar;
 import java.util.List;
+import javax.naming.directory.BasicAttributes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,9 +33,9 @@ public class Insurance extends BasicAttributes{
     private MovableProperty movableProperty;
     //private 
 
-    @OneToMany
     private List<InsuranceCoverage> insurancees;
 
+    @OneToMany
     public List<InsuranceCoverage> getInsurancees() {
         return insurancees;
     }

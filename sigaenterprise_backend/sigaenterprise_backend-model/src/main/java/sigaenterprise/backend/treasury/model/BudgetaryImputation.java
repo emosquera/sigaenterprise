@@ -6,8 +6,11 @@
 package sigaenterprise.backend.treasury.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -22,29 +25,29 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
 @Table(name = "budgetaryImputations")
 public class BudgetaryImputation  extends BasicAttributes{
     
-    private PayOrder budgetHeading;
-    private BudgetHeading imputationHeading;
+    private PayOrder payOrder;
+    private BudgetHeading budgetHeading;
     private BigDecimal mountCau;
     private BigDecimal mountDesc;
     private BigDecimal mountRet;
     
     
-    @OneToMany(mappedBy = "numberOrder")
-    public PayOrder getBudgetHeading() {
-        return budgetHeading;
+    @ManyToOne
+    public PayOrder getPayOrder() {
+        return payOrder;
     }
 
-    public void setBudgetHeading(PayOrder budgetHeading) {
-        this.budgetHeading = budgetHeading;
+    public void setPayOrder(PayOrder payOrder) {
+        this.payOrder = payOrder;
     }
     
     @OneToOne(mappedBy = "budgetCode")
-    public BudgetHeading getImputationHeading() {
-        return imputationHeading;
+    public BudgetHeading getBudgetHeading() {
+        return budgetHeading;
     }
 
-    public void setImputationHeading(BudgetHeading imputationHeading) {
-        this.imputationHeading = imputationHeading;
+    public void setImputationHeading(BudgetHeading budgetHeading) {
+        this.budgetHeading = budgetHeading;
     }
     
     @Column(name = "mountCau")
@@ -94,6 +97,5 @@ public class BudgetaryImputation  extends BasicAttributes{
     @Override
     public String toString() {
         return "sigaenterprise.backend.treasury.model.BudgetaryImputation[ id=" + this.getId() + " ]";
-    }
-    
+    }      
 }

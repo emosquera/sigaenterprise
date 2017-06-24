@@ -21,7 +21,7 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
 public class Asiento extends BasicAttributes{
     
     private Double monto;
-    private Comprobante asientoComprobante;
+    private Comprobante comprobante;
     private CuentaContable cuentaContable;
      
      
@@ -33,15 +33,14 @@ public class Asiento extends BasicAttributes{
     public void setMonto(Double monto) {
         this.monto = monto;
     }
-    
-
+   
     @ManyToOne
-    public Comprobante getAsientoComprobante() {
-        return asientoComprobante;
+    public Comprobante getComprobante() {
+        return comprobante;
     }
     
-    public void setAsientoComprobante(Comprobante comprobante) {
-        this.asientoComprobante = comprobante;
+    public void setComprobante(Comprobante comprobante) {
+        this.comprobante = comprobante;
     }
     
     @OneToOne

@@ -11,7 +11,7 @@ import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import sigaenterprise.backend.contabilidad.facade.AsientoFacadeLocal;
-import sigaenterprise.backend.contabilidad.model.CuentaContable;
+import sigaenterprise.backend.contabilidad.model.Asiento;
 import sigaenterprise.backend.contabilidad.remote.AsientoFacadeRemote;
 
 /**
@@ -26,32 +26,32 @@ public class AsientoBusinessFacade implements AsientoFacadeRemote {
     AsientoFacadeLocal asientoFacadeLocal;
 
     @Override
-    public void create(CuentaContable asiento) {
+    public void create(Asiento asiento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void edit(CuentaContable asiento) {
+    public void edit(Asiento asiento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void remove(CuentaContable asiento) {
+    public void remove(Asiento asiento) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public CuentaContable find(Object id) {
+    public Asiento find(Object id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<CuentaContable> findAll() {
+    public List<Asiento> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<CuentaContable> findRange(int[] range) {
+    public List<Asiento> findRange(int[] range) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -59,5 +59,7 @@ public class AsientoBusinessFacade implements AsientoFacadeRemote {
     public int count() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
    
 }

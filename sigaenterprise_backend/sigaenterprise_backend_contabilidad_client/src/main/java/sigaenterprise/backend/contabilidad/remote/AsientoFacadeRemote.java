@@ -7,7 +7,8 @@ package sigaenterprise.backend.contabilidad.remote;
 
 import java.util.List;
 import javax.ejb.Remote;
-import sigaenterprise.backend.contabilidad.model.CuentaContable;
+import sigaenterprise.backend.contabilidad.model.Asiento;
+
 
 /**
  *
@@ -17,17 +18,17 @@ import sigaenterprise.backend.contabilidad.model.CuentaContable;
 public interface AsientoFacadeRemote {
     public final String JNDI_REMOTE_NAME = "ejb/asientoFacadeRemote";
     
-    void create(CuentaContable asiento);
+    void create(Asiento asiento);
 
-    void edit(CuentaContable asiento);
+    void edit(Asiento asiento);
 
-    void remove(CuentaContable asiento);
+    void remove(Asiento asiento);
 
-    CuentaContable find(Object id);
+    Asiento find(Object id);
 
-    List<CuentaContable> findAll();
+    List<Asiento> findAll();
 
-    List<CuentaContable> findRange(int[] range);
+    List<Asiento> findRange(int[] range);
 
     int count();
 }

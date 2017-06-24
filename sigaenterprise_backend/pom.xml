@@ -11,12 +11,14 @@
     <module>sigaenterprise_backend-restful</module>
     <module>sigaenterprise_backend-auth</module>
     <module>sigaenterprise_backend_auth_client</module>
-    <module>sigaenterprise_backend-model</module>
     <module>sigaenterprise_backend_bienes_client</module>
     <module>sigaenterprise_backend_bienes</module>
     <module>sigaenterprise_backend_treasury</module>
     <module>sigaenterprise_backend_treasury_client</module>
     <module>sigaenterprise_backend-contabilidad</module>
     <module>sigaenterprise_backend_contabilidad_client</module>
+    <module>sigaenterprise_backend_budget</module>
+    <module>sigaenterprise_backend_budget_client</module>
+    <module>sigaenterprise_backend_full_model</module>
   </modules>
 </project>

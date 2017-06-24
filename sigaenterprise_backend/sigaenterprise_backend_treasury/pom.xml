@@ -22,11 +22,6 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>sigaenterprise_backend-model</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
             <artifactId>sigaenterprise_backend_treasury_client</artifactId>
             <version>${project.version}</version>
         </dependency>

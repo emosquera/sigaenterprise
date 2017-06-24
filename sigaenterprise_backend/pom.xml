@@ -14,5 +14,7 @@
     <module>sigaenterprise_backend-model</module>
     <module>sigaenterprise_backend_bienes_client</module>
     <module>sigaenterprise_backend_bienes</module>
+    <module>sigaenterprise_backend_treasury</module>
+    <module>sigaenterprise_backend_treasury_client</module>
   </modules>
 </project>

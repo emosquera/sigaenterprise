@@ -21,16 +21,15 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
 public class Asset extends BasicAttributes {
     private String code;
     private String description;
-    
-    private List<MovableProperty> movable_property;
+    private List<MovableProperty> movableProperty;
 
-    @OneToMany
+    @OneToMany(mappedBy = "asset")
     public List<MovableProperty> getMovableProperty() {
-        return movable_property;
+        return movableProperty;
     }
 
-    public void setMueble(List<MovableProperty> movable_property) {
-        this.movable_property = movable_property;
+    public void setMovableProperty(List<MovableProperty> movableProperty) {
+        this.movableProperty = movableProperty;
     }
     
     @Column(name = "code")
@@ -47,7 +46,7 @@ public class Asset extends BasicAttributes {
         return description;
     }
 
-    public void setDescripcion(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

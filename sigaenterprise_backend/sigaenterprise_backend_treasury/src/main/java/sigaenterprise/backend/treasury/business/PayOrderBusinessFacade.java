@@ -7,6 +7,8 @@ package sigaenterprise.backend.treasury.business;
 
 import java.util.List;
 import javax.ejb.EJB;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 import sigaenterprise.backend.treasury.facade.PayOrderFacadeLocal;
 import sigaenterprise.backend.treasury.model.PayOrder;
 import sigaenterprise.backend.treasury.remote.PayOrderFacadeRemote;
@@ -15,6 +17,8 @@ import sigaenterprise.backend.treasury.remote.PayOrderFacadeRemote;
  *
  * @author martinmgb
  */
+@Stateless(name = "payOrderFacadeRemote", mappedName = PayOrderFacadeRemote.JNDI_REMOTE_NAME)
+@Remote(PayOrderFacadeRemote.class)
 public class PayOrderBusinessFacade implements PayOrderFacadeRemote{
     @EJB
     PayOrderFacadeLocal payOrderFacadeLocal;

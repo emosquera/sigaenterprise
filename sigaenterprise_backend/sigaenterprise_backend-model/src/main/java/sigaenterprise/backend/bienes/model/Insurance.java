@@ -5,9 +5,9 @@
  */
 package sigaenterprise.backend.bienes.model;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
+import javax.naming.directory.BasicAttributes;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,24 +22,25 @@ import javax.persistence.TemporalType;
  * @author ogutierrez
  */
 @Entity
-public class Insurance implements Serializable {
-
+public class Insurance extends BasicAttributes{
+ 
     private static final long serialVersionUID = 1L;
     private Long id;
     private String policy;
-    private Calendar start_date;
-    private Calendar end_date;
-    private String name_insurer;
+    private Calendar startDate;
+    private Calendar endDate;
+    private String nameInsurer;
+    private MovableProperty movableProperty;
     //private 
 
-    @OneToMany
     private List<InsuranceCoverage> insurancees;
 
+    @OneToMany
     public List<InsuranceCoverage> getInsurancees() {
         return insurancees;
     }
 
-    public void setCoberturas(List<InsuranceCoverage> insurancees) {
+    public void setCoverage(List<InsuranceCoverage> insurancees) {
         this.insurancees = insurancees;
     }
     
@@ -48,37 +49,37 @@ public class Insurance implements Serializable {
         return policy;
     }
     
-    public void setPoliza(String policy) {
+    public void setPolicy(String policy) {
         this.policy = policy;
     }
 
-    @Column(name = "start_date")
+    @Column(name = "startDate")
     @Temporal(TemporalType.DATE)
     public Calendar getStartDate() {
-        return start_date;
+        return startDate;
     }
 
-    public void setFecini(Calendar start_date) {
-        this.start_date = start_date;
+    public void setStartDate(Calendar startDate) {
+        this.startDate = startDate;
     }
 
-    @Column(name = "end_date")
+    @Column(name = "endDate")
     @Temporal(TemporalType.DATE)
     public Calendar getEndDate() {
-        return end_date;
+        return endDate;
     }
 
-    public void setFecfin(Calendar end_date) {
-        this.end_date = end_date;
+    public void setEndDate(Calendar endDate) {
+        this.endDate = endDate;
     }
 
-    @Column(name = "name_insurer")
+    @Column(name = "nameInsurer")
     public String getNameInsurer() {
-        return name_insurer;
+        return nameInsurer;
     }
 
-    public void setNameInsurer(String name_insurer) {
-        this.name_insurer = name_insurer;
+    public void setNameInsurer(String nameInsurer) {
+        this.nameInsurer = nameInsurer;
     }
     
             

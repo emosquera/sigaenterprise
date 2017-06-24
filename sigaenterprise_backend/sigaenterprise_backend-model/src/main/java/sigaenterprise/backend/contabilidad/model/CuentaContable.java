@@ -12,7 +12,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
 import sigaenterprise.backend.auth.model.BasicAttributes;
-import sigaenterprise.backend.enums.TipoCuenta;
+import sigaenterprise.backend.enums.contabilidad.TipoCuenta;
 
 /**
  *

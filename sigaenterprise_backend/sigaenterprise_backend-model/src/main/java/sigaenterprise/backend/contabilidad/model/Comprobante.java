@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import sigaenterprise.backend.auth.model.BasicAttributes;
-import sigaenterprise.backend.enums.EstatusComprobante;
+import sigaenterprise.backend.enums.contabilidad.EstatusComprobante;
 
 /**
  *

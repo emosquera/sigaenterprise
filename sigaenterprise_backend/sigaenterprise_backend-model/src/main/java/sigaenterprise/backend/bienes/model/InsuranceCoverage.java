@@ -5,61 +5,57 @@
  */
 package sigaenterprise.backend.bienes.model;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
+import sigaenterprise.backend.auth.model.BasicAttributes;
 /**
  *
  * @author Desiree
  */
 @Entity
-@Table(name="insurance_coverage")
-@IdClass(InsuranceCoverageId.class)
-public class InsuranceCoverage implements Serializable {
+@Table(name="insuranceCoverage")
+public class InsuranceCoverage extends BasicAttributes {
     
+    @Column(name="insuranceId")
     @Id
-    private Long insuranceid;
+    private Long insuranceId;
     
+    @Column(name="coverageId")
     @Id
-    private Long coverageid;
+    private Long coverageId;
     
+    @Column(name="amount")
     private double amount;
     
     @ManyToOne
-    @PrimaryKeyJoinColumn(name="insuranceid", referencedColumnName="ID")
+    @PrimaryKeyJoinColumn(name="insuranceId", referencedColumnName="ID")
     private Insurance insurance;
     
     @ManyToOne
-    @PrimaryKeyJoinColumn(name="coverageid", referencedColumnName="ID")
+    @PrimaryKeyJoinColumn(name="coverageId", referencedColumnName="ID")
     private Coverage coverage;
     
-    @Column(name="insurance_id")
-    public Long getInsuranceid() {
-        return insuranceid;
+    public Long getInsuranceId() {
+        return insuranceId;
     }
 
-    public void setInsuranceid(Long insuranceid) {
-        this.insuranceid = insuranceid;
+    public void setInsuranceId(Long insuranceId) {
+        this.insuranceId = insuranceId;
     }
     
-    @Column(name="coverage_id")
-    public Long getCoverageid() {
-        return coverageid;
+    public Long getCoverageId() {
+        return coverageId;
     }
 
-    public void setCoverageid(Long coverageid) {
-        this.coverageid = coverageid;
+    public void setCoverageId(Long coverageId) {
+        this.coverageId = coverageId;
     }
     
-    @Column(name="amount")
+    
     public double getAmount() {
         return amount;
     }
@@ -84,25 +80,11 @@ public class InsuranceCoverage implements Serializable {
         this.coverage = coverage;
     }
     
-    
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+   
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (getId() != null ? getId().hashCode() : 0);
         return hash;
     }
 
@@ -113,15 +95,12 @@ public class InsuranceCoverage implements Serializable {
             return false;
         }
         InsuranceCoverage other = (InsuranceCoverage) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return !((this.getId() == null && other.getId() != null) || (this.getId() != null && !this.getId().equals(other.getId())));
     }
 
     @Override
     public String toString() {
-        return "sigaenterprise.backend.bienes.model.SeguroCobertura[ id=" + id + " ]";
+        return "sigaenterprise.backend.bienes.model.InsuranceCoverage[ id=" + getId() + " ]";
     }
     
 }

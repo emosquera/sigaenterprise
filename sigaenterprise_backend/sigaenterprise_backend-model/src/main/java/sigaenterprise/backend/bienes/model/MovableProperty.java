@@ -10,6 +10,7 @@ import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,15 +21,25 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author Desiree
  */
 @Entity
-@Table(name="movable_propertys")
+@Table(name="movablePropertys")
 public class MovableProperty extends BasicAttributes {
     
-    String code;
-    String description;
-    Calendar date_purchase;
-    double initial_value;    
-    Asset asset;
-    
+    private String code;
+    private String description;
+    private Calendar datePurchase;
+    private double initialValue;    
+    private Asset asset;
+    private Insurance insurance;
+
+    @OneToOne(mappedBy="id")
+    public Insurance getInsurance() {
+        return insurance;
+    }
+
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }   
+       
     @Column(name="code")
     public String getCode() {
         return code;
@@ -46,23 +57,23 @@ public class MovableProperty extends BasicAttributes {
         this.description = description;
     }
     
-    @Column(name="date_purchase")
+    @Column(name="datePurchase")
     @Temporal(TemporalType.DATE)
     public Calendar getDatePurchase() {
-        return date_purchase;
+        return datePurchase;
     }
 
-    public void setDatePurchase(Calendar date_purchase) {
-        this.date_purchase = date_purchase;
+    public void setDatePurchase(Calendar datePurchase) {
+        this.datePurchase = datePurchase;
     }
     
-    @Column(name="initial_value")
+    @Column(name="initialvalue")
     public double getInitialValue() {
-        return initial_value;
+        return initialValue;
     }
 
-    public void setInitialValue(double initial_value) {
-        this.initial_value = initial_value;
+    public void setInitialValue(double initialValue) {
+        this.initialValue = initialValue;
     }
     
     @ManyToOne

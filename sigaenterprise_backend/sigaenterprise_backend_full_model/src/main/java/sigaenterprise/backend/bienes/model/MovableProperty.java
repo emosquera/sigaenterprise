@@ -7,11 +7,9 @@ package sigaenterprise.backend.bienes.model;
 
 
 import java.util.Calendar;
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -23,18 +21,15 @@ import sigaenterprise.backend.auth.model.BasicAttributes;
  * @author Desiree
  */
 @Entity
-@Table(name="movablePropertys")
+@Table(name="movable_property")
 public class MovableProperty extends BasicAttributes {
 
-    private Insurance insurance;
-
-    
-    
     private String code;
     private String description;
     private Calendar datePurchase;
     private double initialValue;    
     private Asset asset;
+    private Insurance insurance;
 
         
     @Column(name="code")
@@ -78,11 +73,19 @@ public class MovableProperty extends BasicAttributes {
         return asset;
     }
 
-    public void setActivo(Asset asset) {
+    public void setAsset(Asset asset) {
         this.asset = asset;
+    }     
+    
+    @OneToOne(mappedBy = "movableProperty")
+    public Insurance getInsurance() {
+        return insurance;
     }
-      
-           
+
+    public void setInsurance(Insurance insurance) {
+        this.insurance = insurance;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -104,19 +107,4 @@ public class MovableProperty extends BasicAttributes {
     public String toString() {
         return "sigaenterprise.backend.bienes.model.MovableProperty[ id=" + getId() + " ]";
     }
-
-    public void setAsset(Asset asset) {
-        this.asset = asset;
-    }
-
-    @OneToOne(mappedBy = "movableProperty")
-    public Insurance getInsurance() {
-        return insurance;
-    }
-
-    public void setInsurance(Insurance insurance) {
-        this.insurance = insurance;
-    }
-
-    
 }

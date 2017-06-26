@@ -17,7 +17,7 @@ import sigaenterprise.backend.contabilidad.model.Comprobante;
 @Stateless
 public class ComprobanteFacade extends AbstractFacade<Comprobante> implements ComprobanteFacadeLocal {
 
-    @PersistenceContext(unitName = "com.sigaenterprise_sigaenterprise_backend-contabilidad_ejb_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "sigaenterprise_backend_PU")
     private EntityManager em;
 
     @Override

@@ -5,6 +5,7 @@
  */
 package sigaenterprise.backend.treasury.facade;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import sigaenterprise.backend.treasury.model.PayOrder;
@@ -13,6 +14,7 @@ import sigaenterprise.backend.treasury.model.PayOrder;
  *
  * @author martinmgb
  */
+@Stateless
 public class PayOrderFacade extends AbstractFacade<PayOrder> implements PayOrderFacadeLocal {
     
     @PersistenceContext(unitName = "sigaenterprise_backend_PU")

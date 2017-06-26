@@ -7,6 +7,8 @@ package sigaenterprise.backend.budget.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import sigaenterprise.backend.auth.model.BasicAttributes;
 import sigaenterprise.backend.contabilidad.model.CuentaContable;
 
@@ -15,6 +17,7 @@ import sigaenterprise.backend.contabilidad.model.CuentaContable;
  * @author syslife02
  */
 @Entity
+@Table(name="title")
 public class Title extends BasicAttributes {
 
     private String code;
@@ -39,6 +42,7 @@ public class Title extends BasicAttributes {
         this.description = description;
     }
 
+    @ManyToOne
     public CuentaContable getAccountingCode() {
         return accountingCode;
     }

@@ -6,12 +6,15 @@
 package sigaenterprise.backend.contabilidad.model;
 
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import sigaenterprise.backend.auth.model.BasicAttributes;
+import sigaenterprise.backend.budget.model.Title;
 import sigaenterprise.backend.enums.contabilidad.TipoCuenta;
 
 /**
@@ -21,6 +24,8 @@ import sigaenterprise.backend.enums.contabilidad.TipoCuenta;
 @Entity
 @Table(name = "cuentaContables")
 public class CuentaContable extends BasicAttributes{
+
+    private List<Title> titles;
 
     private String codigoContable;
     private String descripcion;
@@ -87,6 +92,15 @@ public class CuentaContable extends BasicAttributes{
     @Override
     public String toString() {
         return "sigaenterprise.backend.contabilidad.model.Asiento[ id=" + getId() + " ]";
+    }
+
+    @OneToMany(mappedBy = "accountingCode")
+    public List<Title> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(List<Title> titles) {
+        this.titles = titles;
     }
     
 }

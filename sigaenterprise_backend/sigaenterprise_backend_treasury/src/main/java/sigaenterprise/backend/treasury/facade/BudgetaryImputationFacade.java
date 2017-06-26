@@ -5,6 +5,7 @@
  */
 package sigaenterprise.backend.treasury.facade;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import sigaenterprise.backend.treasury.model.BudgetaryImputation;
@@ -12,6 +13,7 @@ import sigaenterprise.backend.treasury.model.BudgetaryImputation;
  *
  * @author MiguelAngel
  */
+@Stateless
 public class BudgetaryImputationFacade extends AbstractFacade<BudgetaryImputation> implements BudgetaryImputationFacadeLocal {
 
     @PersistenceContext(unitName = "sigaenterprise_backend_PU")

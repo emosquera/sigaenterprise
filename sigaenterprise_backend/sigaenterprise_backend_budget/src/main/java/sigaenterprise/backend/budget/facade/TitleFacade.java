@@ -17,7 +17,7 @@ import sigaenterprise.backend.budget.model.Title;
 @Stateless
 public class TitleFacade extends AbstractFacade<Title> implements TitleFacadeLocal {
 
-    @PersistenceContext(unitName = "com.sigaenterprise_sigaenterprise_backend_budget_ejb_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "sigaenterprise_backend_PU")
     private EntityManager em;
 
     @Override

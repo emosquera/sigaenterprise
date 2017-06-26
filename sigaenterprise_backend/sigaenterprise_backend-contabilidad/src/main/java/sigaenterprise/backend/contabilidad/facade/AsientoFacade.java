@@ -17,7 +17,7 @@ import sigaenterprise.backend.contabilidad.model.Asiento;
 @Stateless
 public class AsientoFacade extends AbstractFacade<Asiento> implements AsientoFacadeLocal {
 
-    @PersistenceContext(unitName = "com.sigaenterprise_sigaenterprise_backend-contabilidad_ejb_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "sigaenterprise_backend_PU")
     private EntityManager em;
 
     @Override

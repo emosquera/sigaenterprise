@@ -17,7 +17,7 @@ import sigaenterprise.backend.contabilidad.model.CuentaContable;
 @Stateless
 public class CuentaContableFacade extends AbstractFacade<CuentaContable> implements CuentaContableFacadeLocal {
 
-    @PersistenceContext(unitName = "com.sigaenterprise_sigaenterprise_backend-contabilidad_ejb_1.0-SNAPSHOTPU")
+    @PersistenceContext(unitName = "sigaenterprise_backend_PU")
     private EntityManager em;
 
     @Override

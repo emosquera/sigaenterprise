@@ -20,5 +20,7 @@
     <module>sigaenterprise_backend_budget</module>
     <module>sigaenterprise_backend_budget_client</module>
     <module>sigaenterprise_backend_full_model</module>
+    <module>sigaenterprise_backend_paysheet</module>
+    <module>sigaenterprise_backend_paysheet_client</module>
   </modules>
 </project>

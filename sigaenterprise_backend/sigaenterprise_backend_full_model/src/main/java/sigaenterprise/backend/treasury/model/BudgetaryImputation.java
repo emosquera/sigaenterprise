@@ -19,7 +19,7 @@ import sigaenterprise.backend.budget.model.Title;
  * @author MiguelAngel
  */
 @Entity
-@Table(name = "budgetaryImputations")
+@Table(name = "budgetary_imputation")
 public class BudgetaryImputation  extends BasicAttributes{
     
     private PayOrder payOrder;

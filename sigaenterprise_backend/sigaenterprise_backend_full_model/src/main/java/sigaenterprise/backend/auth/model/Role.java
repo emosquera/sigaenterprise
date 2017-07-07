@@ -8,6 +8,8 @@ package sigaenterprise.backend.auth.model;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -18,17 +20,19 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
+@NamedQueries({
+@NamedQuery(name="findByRole", query = "Select r from Role r where r.role = :role")})
 public class Role extends BasicAttributes {
-    private String roles;
+    private String role;
     List<User> users;
 
     @Column(name = "roles")
-    public String getRoles() {
-        return roles;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @OneToMany(mappedBy = "userRole")

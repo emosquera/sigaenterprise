@@ -6,23 +6,14 @@
 package sigaenterprise.backend.auth.remote;
 
 import javax.ejb.Remote;
-import sigaenterprise.backend.auth.model.User;
-
 
 /**
  *
  * @author syslife02
  */
 @Remote
-public interface UserFacadeRemote {
-    public final String JNDI_REMOTE_NAME = "ejb/userFacadeRemote";
+public interface RoleFacadeRemote {
+    public final String JNDI_REMOTE_NAME = "ejb/roleFacadeRemote";
     
-    /**
-     *
-     * @param id
-     * @return
-     */
-    public User findUser(Long id);
-    
-    public void createDefaultUser();
+    public void createAdminRole();
 }

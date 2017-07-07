@@ -8,9 +8,12 @@ package sigaenterprise.backend.auth.business;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.Remote;
+import sigaenterprise.backend.auth.facade.RoleFacadeLocal;
 import sigaenterprise.backend.auth.facade.UserFacadeLocal;
+import sigaenterprise.backend.auth.model.Role;
 import sigaenterprise.backend.auth.model.User;
 import sigaenterprise.backend.auth.remote.UserFacadeRemote;
+import sigaenterprise.backend.enums.UserStatus;
 
 /**
  *
@@ -23,6 +26,9 @@ public class UserBusinessFacade implements UserFacadeRemote{
     @EJB
     UserFacadeLocal userFacadeLocal;
     
+    @EJB
+    RoleFacadeLocal roleFacadeLocal;
+    
     @Override
     public User findUser(Long id) {
         return userFacadeLocal.find(id);
@@ -30,4 +36,16 @@ public class UserBusinessFacade implements UserFacadeRemote{
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public void createDefaultUser() {
+        User defaultUser = new User();
+        defaultUser.setUserName("admin");
+        defaultUser.setPassword("admin");
+        defaultUser.setEmail("admin@sigaenterprise.com");
+        defaultUser.setStatus(UserStatus.A);
+        Role defaultRole = roleFacadeLocal.findByRole("Administrador");        
+        defaultUser.setUserRole(defaultRole);
+        userFacadeLocal.create(defaultUser);
+    }
 }

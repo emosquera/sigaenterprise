@@ -22,7 +22,7 @@ import sigaenterprise.backend.enums.treasury.PayOrderStatus;
  * @author martinmgb
  */
 @Entity
-@Table(name = "payOrders")
+@Table(name = "pay_order")
 public class PayOrder extends BasicAttributes{
     private String numberOrder;
     private Beneficiary beneficiary;

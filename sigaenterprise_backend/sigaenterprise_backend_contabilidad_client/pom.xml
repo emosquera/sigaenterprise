@@ -10,13 +10,14 @@
     <groupId>com.sigaenterprise</groupId>
     <artifactId>sigaenterprise_backend_contabilidad_client</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>ejb</packaging>
+    <packaging>jar</packaging>
 
     <name>sigaenterprise_backend_contabilidad_client</name>
 
     <properties>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -30,6 +31,7 @@
             <artifactId>javaee-api</artifactId>
             <version>7.0</version>
             <scope>provided</scope>
+            <type>jar</type>
         </dependency>
     </dependencies>
 

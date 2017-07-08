@@ -25,4 +25,6 @@ public interface UserFacadeRemote {
     public User findUser(Long id);
     
     public void createDefaultUser();
+    
+    public User login(String userName, String password);
 }

@@ -48,4 +48,9 @@ public class UserBusinessFacade implements UserFacadeRemote{
         defaultUser.setUserRole(defaultRole);
         userFacadeLocal.create(defaultUser);
     }
+
+    @Override
+    public User login(String userName, String password) {
+        return userFacadeLocal.findByUserNameAndPassword(userName, password);
+    }
 }

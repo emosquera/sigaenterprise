@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>::Siga Enterprise::</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>   
+    </h:head>
+    <body>
+            <h:form id="form"> 
+                    <h:outputLabel>Inicia Sesion</h:outputLabel>
+                    <br/>
+                    <p:inputText id="user" required="true" requiredMessage="Debes ingresar un Nombre de Usario"
+                                 validatorMessage="Usuario invalido" value="#{indexViewBean.user.userName}" placeholder="Nombre de Usuario">                        
+                    </p:inputText>
+                    <p:message for="user"/>
+                    <p:password id="pass" value="#{indexViewBean.user.password}" required="true" placeholder="Contrasena" 
+                                requiredMessage="Debes ingresar una contrasena" autocomplete="off"/>
+                    <p:message for="pass"/>          
+                    <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" globalOnly="true" />
+                    <p:commandButton id="botonLogin" action="#{indexRequestBean.login}" update="form" value="ENTRAR"/>                    
+            </h:form>
+    </body>
+</html>

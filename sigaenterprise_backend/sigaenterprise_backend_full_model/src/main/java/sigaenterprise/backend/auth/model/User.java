@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import sigaenterprise.backend.enums.UserStatus;
 
@@ -19,6 +21,10 @@ import sigaenterprise.backend.enums.UserStatus;
  */
 @Entity
 @Table(name = "users")
+@NamedQueries({
+    @NamedQuery(name="findByUserNameAndPassword", query="Select u from User u where u.userName=:username and u.password=:password")
+})
+
 public class User extends BasicAttributes {
 
     private String userName;

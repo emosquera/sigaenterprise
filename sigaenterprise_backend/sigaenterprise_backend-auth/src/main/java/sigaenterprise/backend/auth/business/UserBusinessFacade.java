@@ -57,7 +57,7 @@ public class UserBusinessFacade implements UserFacadeRemote{
         try {
             return userFacadeLocal.findByUserNameAndPassword(userName, password);
         } catch (UserLocalException e) {
-            throw new UserNotFoundExeption("Usuario no Encontrado", e);       
+            throw new UserNotFoundExeption("Usuario no Encontrado", e.getCause());       
         }        
     }
 }

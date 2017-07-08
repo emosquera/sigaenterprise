@@ -6,6 +6,7 @@
 package sigaenterprise.backend.auth.remote;
 
 import javax.ejb.Remote;
+import sigaenterprise.backend.auth.exceptions.UserNotFoundExeption;
 import sigaenterprise.backend.auth.model.User;
 
 
@@ -26,5 +27,5 @@ public interface UserFacadeRemote {
     
     public void createDefaultUser();
     
-    public User login(String userName, String password);
+    public User login(String userName, String password) throws UserNotFoundExeption;
 }

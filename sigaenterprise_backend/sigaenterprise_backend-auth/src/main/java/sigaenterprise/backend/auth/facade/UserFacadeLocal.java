@@ -7,6 +7,7 @@ package sigaenterprise.backend.auth.facade;
 
 import java.util.List;
 import javax.ejb.Local;
+import sigaenterprise.backend.auth.local.exceptions.UserLocalException;
 import sigaenterprise.backend.auth.model.User;
 
 /**
@@ -30,6 +31,6 @@ public interface UserFacadeLocal {
 
     int count();
     
-    User findByUserNameAndPassword(String userName, String password);
+    User findByUserNameAndPassword(String userName, String password) throws UserLocalException;
     
 }

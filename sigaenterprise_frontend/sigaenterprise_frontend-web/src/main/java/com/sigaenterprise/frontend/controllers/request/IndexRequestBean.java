@@ -12,6 +12,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import sigaenterprise.backend.auth.exceptions.UserNotFoundExeption;
 import sigaenterprise.backend.auth.remote.UserFacadeRemote;
 
 /**
@@ -37,11 +38,11 @@ public class IndexRequestBean {
         FacesContext context = FacesContext.getCurrentInstance();
         try {
             userFacadeRemote.login(indexViewBean.getUser().getUserName(), indexViewBean.getUser().getPassword());
-        } catch (Exception ex){            
-            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Usuario no Existe"));
+        } catch (UserNotFoundExeption ex){            
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", ex.getMessage()));
             return;
         }
-        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "Usuario Existe"));        
+        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Exito", "Usuario Encontrado"));        
     }
         
     

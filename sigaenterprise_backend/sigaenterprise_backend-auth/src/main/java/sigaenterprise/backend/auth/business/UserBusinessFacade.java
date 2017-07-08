@@ -8,7 +8,6 @@ package sigaenterprise.backend.auth.business;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.Remote;
-import javax.ejb.TransactionRolledbackLocalException;
 import javax.persistence.NoResultException;
 import sigaenterprise.backend.auth.facade.RoleFacadeLocal;
 import sigaenterprise.backend.auth.facade.UserFacadeLocal;
@@ -17,6 +16,7 @@ import sigaenterprise.backend.auth.model.User;
 import sigaenterprise.backend.auth.remote.UserFacadeRemote;
 import sigaenterprise.backend.enums.UserStatus;
 import sigaenterprise.backend.auth.exceptions.UserNotFoundExeption;
+import sigaenterprise.backend.auth.local.exceptions.UserLocalException;
 
 /**
  *
@@ -56,9 +56,8 @@ public class UserBusinessFacade implements UserFacadeRemote{
     public User login(String userName, String password) throws UserNotFoundExeption {
         try {
             return userFacadeLocal.findByUserNameAndPassword(userName, password);
-        } catch (NoResultException e) {
+        } catch (UserLocalException e) {
             throw new UserNotFoundExeption("Usuario no Encontrado", e);       
-        }
-        
+        }        
     }
 }
